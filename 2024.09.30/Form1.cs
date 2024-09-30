@@ -12,9 +12,12 @@ namespace _2024._09._30
 {
     public partial class Form1 : Form
     {
+        databasehandler db;
         public Form1()
         {
             InitializeComponent();
+            db = new databasehandler();
+            db.ReadAll();
         }
     }
 }
