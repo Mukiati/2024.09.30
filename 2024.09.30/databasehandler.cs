@@ -22,7 +22,42 @@ namespace _2024._09._30
             connection = new MySqlConnection(connectionstring);
 
         }
-        public void add
+        public void delete(car onecar)
+        {
+            try
+            {
+                connection.Open();
+                string query = $"DELETE from autok where id = {onecar.id}";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                MessageBox.Show("törölve");
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("hiba: " + e.Message);
+            }
+        }
+        public void addone(car onecar)
+        {
+            try
+            {
+                connection.Open();
+                string query = $"INSERT into autok (make,model,color,year,power) values('{onecar.type}','{onecar.model}','{onecar.color}','{onecar.year}','{onecar.hp}')";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                MessageBox.Show("sikerult" );
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("hiba: " + e.Message);
+            }
+        }
         public void ReadAll()
         {
             try

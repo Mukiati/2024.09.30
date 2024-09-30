@@ -18,6 +18,15 @@ namespace _2024._09._30
             InitializeComponent();
             db = new databasehandler();
             db.ReadAll();
+            car onecar = new car();
+            onecar.color = "piros";
+            onecar.hp = 1870;
+            onecar.model = "sxz";
+            onecar.year = 2024;
+            onecar.type = "suzuki";
+            db.addone(onecar);
+
+          
         }
     }
 }
